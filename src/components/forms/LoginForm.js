@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import Validator from 'validator';
 
 class LoginForm extends Component {
     state = {
@@ -23,6 +24,7 @@ class LoginForm extends Component {
 
     validate = (data) => {
         const errors = {};
+        if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
         if (!data.password) errors.password = "Password too short";
         return errors;
     }
