@@ -31,7 +31,7 @@ class LoginForm extends Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { data, errors } = this.state;
 
         return (
             <Form onSubmit={this.onSubmit}>
@@ -45,6 +45,7 @@ class LoginForm extends Component {
                         value={data.email}
                         onChange={this.onChange}
                     />
+                    {errors.email && <InlineError text={errors.email} />}
                 </Form.Field>
                 <Form.Field>
                     <label htmlFor="password">Password</label>
@@ -56,6 +57,7 @@ class LoginForm extends Component {
                         value={data.password}
                         onChange={this.onChange}
                     />
+                    {errors.password && <InlineError text={errors.password} />}
                 </Form.Field>
                 <Button primary>Login</Button>
             </Form>
