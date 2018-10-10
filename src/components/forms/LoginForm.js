@@ -23,7 +23,7 @@ class LoginForm extends Component {
 
     validate = (data) => {
         const errors = {};
-        if (!data.password) errors.password = "Can't be blank";
+        if (!data.password) errors.password = "Password too short";
         return errors;
     }
 
